@@ -8,9 +8,9 @@ Este proyecto es un **Sistema de Gestión de Exámenes** diseñado para laborato
 
 ## 🌐 Despliegue y Acceso
 
-El proyecto está desplegado en vercel y la base de datos en aiven. Accesible en la siguiente URL:
+El proyecto está desplegado en vercel y la base de datos en aiven.io Accesible en la siguiente URL:
 
-[COLOCA LA URL DE TU PROYECTO AQUÍ]
+[https://prueba-lab-exams.vercel.app/]
 
 ---
 
@@ -122,6 +122,7 @@ Sigue estos pasos para levantar el proyecto en tu entorno local.
         DB_USER=root
         DB_PASSWORD=
         DB_NAME=nombre_de_tu_base
+        DB_PORT=
         ```
 4.  **Iniciar el Servidor de Desarrollo:**
     ```bash
