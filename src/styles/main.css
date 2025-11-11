@@ -1,0 +1,661 @@
+/* styles/main.css */
+
+/* Variables y Reset Básico */
+:root {
+    --color-primary: #007bff; /* Azul */
+    --color-secondary: #6c757d;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    
+    --color-background: #f8f9fa;
+    --color-text: #343a40;
+    --color-border: #dee2e6;
+    --color-light-bg: #e9ecef;
+    
+    --color-text-light: #fff;
+    --color-text-dark: #212529;
+    
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Layout y Contenedores */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings y Títulos */
+.title {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+}
+
+h1, .title {
+    font-size: clamp(1.8rem, 2.5vw + 0.4rem, 2.5rem); 
+}
+
+h2 {
+    font-size: clamp(1.4rem, 2vw + 0.3rem, 1.8rem);
+    font-weight: 600;
+}
+
+/* ESTILO DE ERROR */
+.danger { 
+    border: 1px solid var(--color-danger);
+    background-color: #f8d7da; 
+    color: var(--color-danger);
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* BOTONES ESTÁNDAR */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: var(--color-success);
+    color: var(--color-text-light);
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-text-light);
+}
+
+.btn-danger:hover {
+    background-color: #a71d2a;
+}
+
+/* NUEVOS BOTONES */
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-info { 
+    background-color: var(--color-info);
+    color: var(--color-text-light);
+}
+
+.btn-info:hover {
+    background-color: #117a8b;
+}
+
+/* Botón más compacto para la tabla */
+.btn-sm { 
+    padding: 5px 10px !important;
+    font-size: 0.85em !important;
+}
+
+/* Tablas */
+.table-container {
+    overflow-x: auto;
+    background: var(--color-light-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed; 
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    text-overflow: clip;
+    white-space: normal; 
+}
+
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.table th {
+    background-color: var(--color-light-bg);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* --- AJUSTES DE ANCHO DE COLUMNAS --- */
+.table th:nth-child(1), .table td:nth-child(1) { width: 50px; min-width: 50px; } 
+.table th:nth-child(2), 
+.table td:nth-child(2) { 
+    width: 20%; 
+    min-width: 150px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+} 
+.table th:nth-child(3), .table td:nth-child(3) { width: 25%; min-width: 150px; } 
+.table th:nth-child(4), 
+.table td:nth-child(4) {
+    width: 160px; 
+    min-width: 100px; 
+    text-align: center; 
+}
+.table th:nth-child(5), 
+.table td:nth-child(5) { 
+    width: 120px; 
+    min-width: 120px; 
+} 
+.table th:nth-child(6), 
+.table td:nth-child(6) {
+    width: 230px; 
+    min-width: 230px; 
+}
+
+/* ⭐ ESTILOS CRUCIALES PARA BOTONES DE TABLA ⭐ */
+.action-buttons {
+    display: flex; 
+    gap: 5px; 
+    align-items: center;
+    justify-content: center; 
+    flex-wrap: nowrap; 
+}
+
+.action-buttons button.btn-danger {
+    flex-basis: auto;
+    flex-grow: 0;
+    max-width: 70px; 
+    min-width: 70px; 
+    padding: 4px 8px !important; 
+    font-size: 0.8em !important;
+}
+
+.action-buttons a[href^="/exams/create"] {
+    flex-grow: 0; 
+    flex-shrink: 0; 
+    max-width: 70px; 
+    min-width: 70px; 
+    padding: 4px 8px !important; 
+    font-size: 0.8em !important;
+}
+
+.action-buttons a.btn { 
+    flex-grow: 1; 
+    flex-shrink: 1; 
+    max-width: 170px; 
+    min-width: 60px; 
+    text-align: center; 
+    font-size: 0.75em !important; 
+    padding: 4px 6px !important; 
+    white-space: nowrap; 
+}
+
+.btn-icon-danger {
+    flex-basis: auto !important;
+    flex-grow: 0 !important;
+    max-width: 35px !important;
+    min-width: 35px !important;
+    padding: 4px 4px !important; 
+    font-size: 0.8em !important;
+}
+
+/* 🆕 ESTILOS PARA INSIGNIAS DE ESTADO (BADGES) */
+.badge {
+    padding: 4px 10px;
+    border-radius: 16px; 
+    font-weight: 700;
+    font-size: 0.8em;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+}
+
+.badge-warning { 
+    background-color: var(--color-warning);
+    color: var(--color-text-dark);
+}
+
+.badge-success { 
+    background-color: var(--color-success);
+    color: var(--color-text-light);
+}
+
+
+/* --- Formularios --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* --- Mejoras Específicas para Select --- */
+.form-group-select { 
+    position: relative; 
+}
+
+.form-group select {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none; 
+    padding-right: 35px; 
+    background-color: white; 
+    cursor: pointer;
+}
+
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%236c757d' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center; 
+    background-size: 20px; 
+}
+
+.form-group select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* ⭐ Estilo para identificador de Sub-Examen (Reportes Compuestos) ⭐ */
+.sub-examen-label {
+    display: block; 
+    font-size: 0.9em; 
+    font-weight: 600;
+    color: var(--color-secondary); 
+    padding-bottom: 2px;
+    margin-bottom: -5px; 
+    border-bottom: 1px dotted var(--color-border);
+    width: fit-content; 
+}
+.form-group .sub-examen-label + label {
+    margin-top: 0;
+}
+
+
+/* --- ESTILOS PARA CREACIÓN/EDICIÓN DE EXAMEN --- */
+.section-box {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: var(--color-light-bg);
+}
+
+.section-box h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--color-primary);
+    margin-bottom: 20px;
+}
+
+/* 1. Definición de Campos (Examen Simple) */
+.exam-field-row {
+    display: flex;
+    gap: 15px; 
+    align-items: flex-end; 
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+.exam-field-group {
+    flex: 1; 
+    margin-bottom: 0 !important; 
+    min-width: 150px; 
+}
+
+.exam-list-options-group {
+    flex: 2; 
+}
+
+.exam-field-row .form-group label {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: var(--color-secondary);
+}
+
+.btn-remove-field {
+    padding: 10px 15px;
+    height: 40px; 
+    flex-shrink: 0; 
+}
+
+/* 2. Composición (Examen Compuesto) */
+.composition-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-toggle {
+    background-color: var(--color-secondary);
+    color: white;
+    transition: background-color 0.2s;
+    border-radius: 20px; 
+}
+
+.btn-toggle:hover {
+    opacity: 0.8;
+}
+
+/* --- Reporte Final Estilos de Pantalla --- */
+.reporte-documento {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.reporte-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+.reporte-info-paciente {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.reporte-resultados .table {
+    margin-top: 10px;
+    /* Estilo de la tabla de resultados en PANTALLA (Fondo gris en cabecera) */
+    border: 1px solid var(--color-border); 
+}
+
+.reporte-resultados .table th, .reporte-resultados .table td {
+    border: 1px solid var(--color-border);
+}
+
+.reporte-documento h2 {
+    font-size: 1.6rem; 
+    color: var(--color-primary);
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-primary);
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+
+/* ============================================== */
+/* === MEJORAS DE RESPONSIVIDAD (MEDIA QUERIES) === */
+/* ============================================== */
+
+@media (max-width: 768px) {
+    
+    .container { padding: 10px; }
+    .card { padding: 15px; }
+    .btn { padding: 8px 12px; font-size: 0.9em; }
+    
+    .reporte-info-paciente {
+        flex-direction: column; 
+        gap: 5px;
+        font-size: 1em;
+    }
+
+    .reporte-documento {
+        margin: 10px auto; 
+        padding: 20px; 
+    }
+    
+    .exam-field-row {
+        flex-direction: column; 
+        gap: 0; 
+        padding: 10px;
+    }
+    
+    .exam-field-group {
+        width: 100%;
+        margin-bottom: 15px !important; 
+        min-width: 100%;
+    }
+    
+    .btn-remove-field {
+        width: 100%;
+        height: auto; 
+        margin-top: 5px; 
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .table-container { overflow-x: hidden; }
+    
+    .table:not(.reporte-resultados .table) {
+        border: none;
+        box-shadow: none;
+        table-layout: auto; 
+    }
+
+    .table thead { display: none; }
+
+    .table tr {
+        display: block; 
+        margin-bottom: 10px;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        background-color: white;
+    }
+
+    .table td {
+        display: block; 
+        text-align: right !important; 
+        padding: 10px 15px;
+        border-bottom: 1px dotted var(--color-border);
+        white-space: normal; 
+        width: auto !important;
+        min-width: auto !important;
+        max-width: auto !important;
+        text-overflow: clip; 
+    }
+
+    .table td:last-child {
+        border-bottom: none; 
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--color-secondary);
+    }
+    
+    .action-buttons {
+        justify-content: space-between; 
+        flex-wrap: wrap; 
+    }
+    
+    .action-buttons a.btn, .action-buttons button.btn {
+        flex-basis: 48% !important; 
+        min-width: unset !important;
+        max-width: unset !important;
+        font-size: 0.85em !important;
+        margin-top: 5px;
+    }
+    
+    .action-buttons .btn-icon-danger {
+        flex-basis: auto !important; 
+    }
+}
+
+
+/* --- Bloque de Impresión Final (Estilo similar a Pantalla) --- */
+@media print {
+    /* 1. Reset Básico para Impresión */
+    body {
+        background-color: white !important;
+        color: black !important;
+        margin: 0 !important;
+    }
+    
+    /* Ocultar elementos irrelevantes */
+    .btn, a.btn, .header-nav, .container > a.btn, .container > button {
+        display: none !important;
+    }
+    
+    /* 2. Estructura del Documento de Reporte */
+    .reporte-documento {
+        margin: 0; 
+        max-width: none;
+        box-shadow: none;
+        border: none;
+        padding: 40px; 
+        min-height: 100vh; 
+    }
+
+    /* 3. Información del Paciente (Negro) */
+    .reporte-info-paciente {
+        flex-direction: row !important; 
+        font-size: 1em !important; 
+        padding: 10px 0 !important;
+        border-top: 1px solid #000 !important; 
+        border-bottom: 1px solid #000 !important;
+    }
+    
+    /* 4. Títulos y Cabeceras (Manteniendo el color Primary/Azul) */
+    .reporte-documento h2 {
+        font-size: 1.6rem !important; /* Mantiene el tamaño de pantalla */
+        color: var(--color-primary) !important; /* Mantiene el color azul */
+        border-bottom: 1px solid #000 !important; 
+        padding-bottom: 5px !important;
+        margin-top: 25px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* 5. Tabla de Resultados (Estilo similar a Pantalla - Fondo gris en cabecera) */
+    .reporte-resultados .table {
+        table-layout: auto !important; 
+        width: 100% !important; 
+        margin: 0 auto !important;
+        /* Borde exterior fino */
+        border: 1px solid var(--color-border) !important; 
+        border-collapse: collapse !important;
+        text-align: center !important; 
+    }
+    
+    .reporte-resultados .table th, 
+    .reporte-resultados .table td {
+        padding: 8px 10px !important;
+        border: 1px solid var(--color-border) !important; /* Mantiene bordes de color claro */
+        text-align: center !important; 
+    }
+
+    .reporte-resultados .table th {
+        /* Mantiene el fondo gris de pantalla */
+        background-color: var(--color-light-bg) !important; 
+        font-weight: 600 !important; 
+        color: var(--color-text-dark) !important;
+    }
+    
+    /* Alineación Específica */
+    /* Columna 1: Examen */
+    .reporte-resultados .table td:nth-child(1),
+    .reporte-resultados .table th:nth-child(1) {
+        text-align: left !important; /* Alinea el nombre del examen a la izquierda */
+    }
+
+    /* Columna 3: Resultado Reportado (Énfasis) */
+    .reporte-resultados .table td:nth-child(3) {
+        font-weight: bold !important; 
+        color: var(--color-text-dark) !important; 
+        text-align: center !important; 
+    }
+
+    .reporte-resultados .table td {
+        white-space: normal !important; /* Soluciona el truncamiento */
+        overflow: visible !important; 
+        text-overflow: clip !important; 
+    }
+
+    .reporte-header h1 {
+        white-space: normal !important;
+    }
+}
