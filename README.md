@@ -6,21 +6,21 @@ Este proyecto es un **Sistema de Gestión de Exámenes** diseñado para laborato
 
 ---
 
-## 🌐 Despliegue y Acceso
+## 🌐 ¡Prueba el proyecto en vivo!
 
-El proyecto está desplegado en vercel y la base de datos en aiven.io Accesible en la siguiente URL:
+👉 **<a href="https://prueba-lab-exams.vercel.app/" target="_blank">ACCEDER AL DEMO ONLINE AQUÍ</a>** 👈
 
-[https://prueba-lab-exams.vercel.app/]
+> **☁️ Notas de Despliegue:** La aplicación (Frontend y Backend con Next.js) se encuentra alojada y optimizada en **Vercel**, mientras que la base de datos relacional (MySQL) opera de forma segura y persistente a través de **Aiven**.
 
 ---
 
 ## 💻 Stack Tecnológico
 
-| Componente           | Tecnología       | Rol Principal                                                                    |
-| :------------------- | :--------------- | :------------------------------------------------------------------------------- |
-| **Frontend/Backend** | **Next.js**      | Interfaz de usuario, _Routing_ (rutas), Implementación de APIs y Server Actions. |
-| **Base de Datos**    | **MySQL**        | Almacenamiento persistente de la estructura de exámenes y datos transaccionales. |
-| **Estilizado**       | **Tailwind CSS** | Diseño _responsive_ y personalización de estilos.                                |
+| Componente           | Tecnología       | Rol Principal                                                                      |
+| :------------------- | :--------------- | :--------------------------------------------------------------------------------- |
+| **Frontend/Backend** | **Next.js**      | Interfaz de usuario, _Routing_ (rutas), Implementación de APIs y Server Actions.   |
+| **Base de Datos**    | **MySQL**        | Almacenamiento persistente de la estructura de exámenes y datos transaccionales.   |
+| **Estilizado**       | **Tailwind CSS** | Diseño _responsive_ y personalización de estilos.                                  |
 
 ---
 
@@ -30,15 +30,15 @@ El proyecto está desplegado en vercel y la base de datos en aiven.io Accesible 
 
 Esta sección se centra en la definición y mantenimiento de las pruebas de laboratorio.
 
-- **Listado de Exámenes:** Permite listar, filtrar (por tipo de examen) y buscar exámenes por nombre. La visualización es ordenada alfabéticamente.
+* **Listado de Exámenes:** Permite listar, filtrar (por tipo de examen) y buscar exámenes por nombre. La visualización es ordenada alfabéticamente.
   ![Listado de Exámenes](./img/listar-examenes.png)
   _Figura 1: Vista general del listado de exámenes con opciones de filtrado y búsqueda._
 
-- **Creación de Exámenes:** Permite definir el nombre del examen, especificar si es **Simple** o **Compuesto**, y asociar los campos de resultado necesarios, definiendo su tipo de dato (texto, número, o lista).
+* **Creación de Exámenes:** Permite definir el nombre del examen, especificar si es **Simple** o **Compuesto**, y asociar los campos de resultado necesarios, definiendo su tipo de dato (texto, número, o lista).
   ![Creación de Exámenes](./img/crear-examen.png)
   _Figura 2: Interfaz para la creación de nuevos exámenes, simple o compuesto._
 
-- **Edición de Exámenes:** Facilita la modificación del nombre y la estructura de campos de un examen existente. El **tipo de examen (Simple/Compuesto) no es editable** para mantener la integridad de los reportes históricos.
+* **Edición de Exámenes:** Facilita la modificación del nombre y la estructura de campos de un examen existente. El **tipo de examen (Simple/Compuesto) no es editable** para mantener la integridad de los reportes históricos.
   ![Edición de Exámenes](./img/editar-examen.png)
   _Figura 3: Pantalla de edición de un examen, mostrando campos modificables._
 
@@ -46,19 +46,19 @@ Esta sección se centra en la definición y mantenimiento de las pruebas de labo
 
 Este módulo maneja el flujo de trabajo desde que se solicita un examen hasta la entrega del resultado.
 
-- **Listado de Reportes:** Muestra todas las órdenes de examen creadas. Permite filtrar por estado (**Pendiente** o **Completado**) y buscar por nombre del paciente o de la orden.
+* **Listado de Reportes:** Muestra todas las órdenes de examen creadas. Permite filtrar por estado (**Pendiente** o **Completado**) y buscar por nombre del paciente o de la orden.
   ![Listado de Reportes](./img/listar-reportes.png)
   _Figura 4: Tabla de reportes con filtros de estado y búsqueda._
 
-- **Creación de Reporte:** Genera una nueva orden de examen para un paciente, asignando el tipo de prueba a realizar.
+* **Creación de Reporte:** Genera una nueva orden de examen para un paciente, asignando el tipo de prueba a realizar.
   ![Creación de Reporte](./img/crear-reporte.png)
   _Figura 5: Formulario para crear una nueva orden de examen para un paciente._
 
-- **Ingreso de Resultados:** Interfaz dedicada para introducir los valores finales de cada campo de la orden, según el tipo de dato predefinido.
+* **Ingreso de Resultados:** Interfaz dedicada para introducir los valores finales de cada campo de la orden, según el tipo de dato predefinido.
   ![Ingreso de Resultados](./img/ingresar-resultados.png)
   _Figura 6: Pantalla de ingreso de resultados para los campos de un examen._
 
-- **Visualización y Exportación:** Permite visualizar el resultado final del examen y ofrece la funcionalidad de **imprimir o exportar el reporte en formato PDF** (Reportar el ítem creado).
+* **Visualización y Exportación:** Permite visualizar el resultado final del examen y ofrece la funcionalidad de **imprimir o exportar el reporte en formato PDF** (Reportar el ítem creado).
   ![Visualización de Resultados](./img/ver-resultados.png)
   _Figura 7: Vista del reporte de resultados finalizado, con opción de impresión PDF._
 
@@ -69,21 +69,18 @@ Este módulo maneja el flujo de trabajo desde que se solicita un examen hasta la
 El diseño de la base de datos MySQL está optimizado para manejar la lógica de la composición de exámenes (Simples vs. Compuestos) de manera eficiente.
 
 ### 1. Diagrama Entidad-Relación (MER)
-
 Muestra la arquitectura conceptual de las tablas principales y sus relaciones.
 
 ![Diagrama Entidad Relacion de la Base de Datos](./img/diagrama-db-er.png)
 _Figura 8: Diagrama de Entidad-Relación (MER) de la base de datos `lab_examenes_db`._
 
 ### 2. Diagrama Relacional
-
 Muestra la arquitectura física de las tablas, incluyendo las **llaves primarias (PK)** y **llaves foráneas (FK)** que definen las relaciones.
 
 ![Diagrama Relacional de la Base de Datos](./img/diagrama-db.png)
 _Figura 9: Diagrama Relacional que ilustra la arquitectura física de las tablas._
 
 ### Documentación
-
 La descripción detallada del diccionario de datos y las consultas clave se encuentra en el archivo: [`documentacion-base-de-datos.pdf`](./documentacion-base-de-datos.pdf)
 
 ---
@@ -92,10 +89,10 @@ La descripción detallada del diccionario de datos y las consultas clave se encu
 
 Este proyecto se benefició significativamente de la asistencia de **Gemini 2.5**. La IA fue instrumental en las siguientes áreas técnicas:
 
-- **Optimización de Estilos y _Responsive Design_:** Asistencia en la mejora de la estética y la implementación de un diseño **adaptable** y profesional utilizando Tailwind CSS.
-- **Lógica de Búsqueda y Filtrado:** Desarrollo e implementación eficiente de las funciones de búsqueda y filtrado en los listados del sistema.
-- **Optimización y _Debugging_:** Soporte continuo para la corrección de errores, optimización de código base y consultas puntuales sobre patrones de programación.
-- **Documentación Profesional:** Generación de la estructura profesional del archivo README y la documentación detallada de la base de datos.
+* **Optimización de Estilos y _Responsive Design_:** Asistencia en la mejora de la estética y la implementación de un diseño **adaptable** y profesional utilizando Tailwind CSS.
+* **Lógica de Búsqueda y Filtrado:** Desarrollo e implementación eficiente de las funciones de búsqueda y filtrado en los listados del sistema.
+* **Optimización y _Debugging_:** Soporte continuo para la corrección de errores, optimización de código base y consultas puntuales sobre patrones de programación.
+* **Documentación Profesional:** Generación de la estructura profesional del archivo README y la documentación detallada de la base de datos.
 
 ---
 
@@ -103,30 +100,33 @@ Este proyecto se benefició significativamente de la asistencia de **Gemini 2.5*
 
 Sigue estos pasos para levantar el proyecto en tu entorno local.
 
-1.  **Clonar el Repositorio:**
-    ```bash
-    git clone [https://github.com/elmerrondon/prueba-lab-exams.git](https://github.com/elmerrondon/prueba-lab-exams.git)
-    cd prueba-lab-exams
-    ```
-2.  **Instalar Dependencias:**
-    ```bash
-    npm install
-    ```
-3.  **Configuración de la Base de Datos (MySQL):**
-    - Crea una base de datos MySQL vacía.
-    - Ejecuta el script de creación de tablas disponible en: `database/db.sql`.
-    - Crea un archivo `.env` en la raíz del proyecto y configura las credenciales de conexión:
-      ```bash
-      # Ejemplo de credenciales en .env
-      DB_HOST=localhost
-      DB_USER=root
-      DB_PASSWORD=
-      DB_NAME=nombre_de_tu_base
-      DB_PORT=
-      ```
-4.  **Iniciar el Servidor de Desarrollo:**
-    ```bash
-    npm run dev
-    ```
+1. **Clonar el Repositorio:**
+   ```bash
+   git clone [https://github.com/elmerrondon/prueba-lab-exams.git](https://github.com/elmerrondon/prueba-lab-exams.git)
+   cd prueba-lab-exams
+   ```
 
-El sistema estará disponible en `http://localhost:3000`.
+2. **Instalar Dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Configuración de la Base de Datos (MySQL):**
+   * Crea una base de datos MySQL vacía.
+   * Ejecuta el script de creación de tablas disponible en: `database/db.sql`.
+   * Crea un archivo `.env` en la raíz del proyecto y configura las credenciales de conexión:
+     ```env
+     # Ejemplo de credenciales en .env
+     DB_HOST="localhost"
+     DB_USER="root"
+     DB_PASSWORD="tu_password"
+     DB_NAME="nombre_de_tu_base"
+     DB_PORT=3306
+     ```
+
+4. **Iniciar el Servidor de Desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+El sistema estará disponible en tu navegador en `http://localhost:3000`.
