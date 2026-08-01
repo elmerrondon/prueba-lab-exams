@@ -19,9 +19,9 @@ const config = {
     connectionLimit: 10, // Límite de conexiones simultáneas en el pool
     queueLimit: 0,
     
-    // Formato de consulta: Al omitir 'namedPlaceholders: true', usamos el formato tradicional 
-    // con el signo de interrogación '?' para los valores.
-    // e.g., connection.execute('SELECT * FROM users WHERE id = ?', [userId]);
+    ssl: {
+        rejectUnauthorized: true
+    }
 };
 
 if (process.env.NODE_ENV === 'production') {
